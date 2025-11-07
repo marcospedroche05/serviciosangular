@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Persona } from "../models/Persona";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { environment } from "../../environments/environment.development";
 
 @Injectable()
 export class ServicePersonas {
@@ -11,13 +12,13 @@ export class ServicePersonas {
 
     //SI VAMOS A DEVOLVER LA PETICION, EL OBJETO A DEVOLVER ES UN Observable<any> PARA PODER SUBSCRIBIRNOS
     getPersonas(): Observable<any> {
-        let urlApi = "https://servicioapipersonasmvcpgs.azurewebsites.net/";
+        let urlApi = environment.urlPersonas;
         let request = "api/personas";
         return this._http.get(urlApi + request);
     }
 
     getPersonasPromise(): Promise<any> {
-        let urlApi = "https://servicioapipersonasmvcpgs.azurewebsites.net/";
+        let urlApi = environment.urlPersonas;
         let request = "api/personas";
         let promise = new Promise((resolve) => {
             this._http.get(urlApi + request).subscribe(response => {

@@ -6,15 +6,17 @@ import { App } from './app';
 import { provideHttpClient } from '@angular/common/http';
 import { PersonasComponent } from './components/personas.component/personas.component';
 import { ServicePersonas } from './services/service.personas';
+import { Personasstandalone } from './components/personasstandalone/personasstandalone';
 
 @NgModule({
   declarations: [
     App,
-    PersonasComponent
+    PersonasComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Personasstandalone,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
