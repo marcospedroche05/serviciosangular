@@ -1,0 +1,29 @@
+import { Injectable } from "@angular/core";
+import { Persona } from "../models/Persona";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+
+@Injectable()
+export class ServicePersonas {
+    //PARA PODER REALIZAR PETICIONES, NECESITAMOS EL OBJETO HttpClient
+    //DICHO OBJETO DEBEMOS INYECTARLO EN LAS CLASES CON APIS
+    constructor(private _http: HttpClient){}
+
+    //SI VAMOS A DEVOLVER LA PETICION, EL OBJETO A DEVOLVER ES UN Observable<any> PARA PODER SUBSCRIBIRNOS
+    getPersonas(): Observable<any> {
+        let urlApi = "https://servicioapipersonasmvcpgs.azurewebsites.net/";
+        let request = "api/personas";
+        return this._http.get(urlApi + request);
+    }
+
+    getPersonasPromise(): Promise<any> {
+        let urlApi = "https://servicioapipersonasmvcpgs.azurewebsites.net/";
+        let request = "api/personas";
+        let promise = new Promise((resolve) => {
+            this._http.get(urlApi + request).subscribe(response => {
+                resolve(response)
+            })
+        })
+        return promise
+    }
+}
