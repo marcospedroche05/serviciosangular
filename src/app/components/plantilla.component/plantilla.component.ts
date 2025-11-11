@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ServicePlantillas } from '../../services/service.plantillas';
 import { Plantilla } from '../../models/plantilla';
 
@@ -24,9 +24,10 @@ export class PlantillaComponent implements OnInit {
 
   buscaEmpleados(): void {
     this.funcionElegida = this.funcion.nativeElement.value;
+
     this._service.getEmpleados(this.funcionElegida).then(response => {
-      this.plantilla = response;
-    })
+       this.plantilla = response;
+     })
   }
 
 }

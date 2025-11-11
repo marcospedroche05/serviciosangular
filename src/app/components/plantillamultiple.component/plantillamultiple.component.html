@@ -1,0 +1,38 @@
+<div>
+    <h1>Plantillas</h1>
+    <form #formulario="ngForm" (ngSubmit)="buscaEmpleados()">
+        <select #funcion name="funcion" multiple>
+            @for(funcion of funciones; track funcion){
+                <option value="{{funcion}}">{{funcion}}</option>
+            }
+        </select>
+        <button>Buscar empleado</button>
+    </form>
+    <br/>
+    <table *ngIf="plantilla" border="1" style="text-align: center;">
+        <thead>
+            <tr>
+                <th>idEmpleado</th>
+                <th>idHospital</th>
+                <th>idSala</th>
+                <th>apellido</th>
+                <th>funcion</th>
+                <th>turno</th>
+                <th>salario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(empleado of plantilla; track empleado){
+                <tr>
+                    <td>{{empleado.idEmpleado}}</td>
+                    <td>{{empleado.idHospital}}</td>
+                    <td>{{empleado.idSala}}</td>
+                    <td>{{empleado.apellido}}</td>
+                    <td>{{empleado.funcion}}</td>
+                    <td>{{empleado.turno}}</td>
+                    <td>{{empleado.salario}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
