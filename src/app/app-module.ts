@@ -9,23 +9,31 @@ import { ServicePersonas } from './services/service.personas';
 import { Personasstandalone } from './components/personasstandalone/personasstandalone';
 import { ServiceCoches } from './services/service.coches';
 import { CochesComponent } from './components/coches.component/coches.component';
+import { MenuComponent } from './components/menu.component/menu.component';
+import { PlantillaComponent } from './components/plantilla.component/plantilla.component';
+import { ServicePlantillas } from './services/service.plantillas';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     App,
     PersonasComponent,
     CochesComponent,
+    MenuComponent,
+    PlantillaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     Personasstandalone,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideHttpClient(),
     ServicePersonas,
-    ServiceCoches
+    ServiceCoches,
+    ServicePlantillas
   ],
   bootstrap: [App]
 })
