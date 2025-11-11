@@ -1,0 +1,12 @@
+<div>
+    <h1>Coches</h1>
+    <div>
+        @for(coche of coches; track coche){
+            <div>
+                <img src="{{coche.imagen}}" width="150px"/>
+                <h5>{{coche.marca}} | {{coche.modelo}}</h5>
+                <p>{{coche.conductor}}</p>
+            </div>   
+        }
+    </div>
+</div>
